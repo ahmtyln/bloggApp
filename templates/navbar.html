@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top" style="background-color: #5F788A;">
+  
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'blog-index' %}">Clarusway Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        {% if request.user.is_authenticated %}
+        <div class="navbar-nav ms-auto ">
+          <a class="nav-link" aria-current="page" href="{% url 'blog-post-create' %}">New Post</a>
+          <a class="nav-link" href="{% url 'users-profile' %}">Profile</a>
+          <a class="nav-link" href="{% url 'users-logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="{% url 'users-login' %}">Login</a>
+            <a class="nav-link" href="{% url 'sign_up' %}" >Register</a>
+        </div>   
+        {% endif %}
+      </div>
+    </div>
+  </nav>
